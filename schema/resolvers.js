@@ -1,4 +1,5 @@
 const { Users, Blogs } = require("../data");
+const { getMutualFriends } = require("../utils/getMutualFriends");
 
 const resolvers = {
   Query: {
@@ -27,15 +28,20 @@ const resolvers = {
       );
       return searchResult;
     },
+
+    mutualFriends(parent, { firstUserID, secondUserID }) {
+      return getMutualFriends(firstUserID, secondUserID);
+    },
   },
 
   User: {
-    friends: () => {
-      return Users.filter((user) => user.id > 3);
+    friends: (parent) => {
+      return Users.filter((user) => parent.friends.includes(user.id));
     },
+
     blogs: (parent) => {
-      return Blogs.filter((blog) => blog.user == parent.id)
-    }
+      return Blogs.filter((blog) => blog.user == parent.id);
+    },
   },
 };
 

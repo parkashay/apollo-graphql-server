@@ -5,6 +5,7 @@ const Users = [
     email: "mukesh@ambani.com",
     nationality: "INDIAN",
     age: 69,
+    friends: [2, 69],
   },
   {
     id: 2,
@@ -12,6 +13,7 @@ const Users = [
     email: "ratan@ratan.com",
     nationality: "INDIAN",
     age: 9,
+    friends: [3, 1],
   },
   {
     id: 3,
@@ -19,6 +21,7 @@ const Users = [
     email: "elon@elon.com",
     nationality: "AMERICAN",
     age: 420,
+    friends: [100, 2, 69],
   },
   {
     id: 69,
@@ -26,6 +29,7 @@ const Users = [
     email: "binan@binan.com",
     nationality: "SAUDIARABIAN",
     age: 40,
+    friends: [100, 3, 1],
   },
   {
     id: 100,
@@ -33,6 +37,15 @@ const Users = [
     email: "adolf@adolf.com",
     nationality: "GERMAN",
     age: 56,
+    friends: [3, 69],
+  },
+  {
+    id: 999,
+    name: "Rajesh Hamal",
+    email: "gmail@rajeshhamal.com",
+    nationality: "NEPALI",
+    age: "16",
+    friends: [1, 2, 3, 69, 100],
   },
 ];
 
@@ -50,7 +63,7 @@ const Blogs = [
     content:
       "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
     isPosted: false,
-    id: "2",
+    id: 2,
     user: 2,
   },
   {
@@ -58,7 +71,7 @@ const Blogs = [
     content:
       "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart",
     isPosted: false,
-    id: "3",
+    id: 3,
     user: 3,
   },
   {
@@ -66,7 +79,7 @@ const Blogs = [
     content:
       "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart",
     isPosted: true,
-    id: "4",
+    id: 4,
     user: 3,
   },
   {
@@ -74,7 +87,7 @@ const Blogs = [
     content:
       "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart",
     isPosted: true,
-    id: "5",
+    id: 5,
     user: 69,
   },
   {
@@ -82,7 +95,7 @@ const Blogs = [
     content:
       "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
     isPosted: true,
-    id: "6",
+    id: 6,
     user: 100,
   },
   {
@@ -90,15 +103,22 @@ const Blogs = [
     content:
       "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
     isPosted: false,
-    id: "7",
+    id: 7,
     user: 69,
   },
   {
     title: "Seamless bifurcated process improvement",
     content: "The Football Is Good For Training And Recreational Purposes",
     isPosted: false,
-    id: "8",
+    id: 8,
     user: 100,
+  },
+  {
+    title: "Rajesh Dai ko blog",
+    content: "This post belongs to Rajesh Dai",
+    isPosted: true,
+    id: 9,
+    user: 999,
   },
 ];
 module.exports = { Users, Blogs };

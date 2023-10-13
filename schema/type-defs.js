@@ -26,6 +26,7 @@ const typeDefs = gql`
     blogs: [Blog!]!
     blog(id: ID!): Blog!
     search(query: String): [Blog]
+    mutualFriends(firstUserID: ID!, secondUserID: ID!): [User!]!
   }
 
   enum Nationality {
@@ -33,6 +34,7 @@ const typeDefs = gql`
     INDIAN
     AMERICAN
     GERMAN
+    NEPALI
   }
 `;
 
