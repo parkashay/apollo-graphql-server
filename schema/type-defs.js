@@ -16,7 +16,7 @@ const typeDefs = gql`
     title: String!
     content: String!
     isPosted: Boolean!
-    user: ID!
+    user: ID
   }
 
 
@@ -27,6 +27,20 @@ const typeDefs = gql`
     blog(id: ID!): Blog!
     search(query: String): [Blog]
     mutualFriends(firstUserID: ID!, secondUserID: ID!): [User!]!
+  }
+
+  type Mutation {
+  createBlog(input: CreateBlogInput!): Blog!
+  }
+
+  input CreateBlogInput {
+  title: String!
+  content: String!
+  isPosted: Boolean!
+  user: ID = 999
+  }
+  type Mutation {
+    createBlog(input: CreateBlogInput!): Blog!
   }
 
   enum Nationality {
