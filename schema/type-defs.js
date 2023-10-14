@@ -31,6 +31,7 @@ const typeDefs = gql`
 
   type Mutation {
   createBlog(input: CreateBlogInput!): Blog!
+  deleteBlog(blogID: ID!): Blog!
   }
 
   input CreateBlogInput {

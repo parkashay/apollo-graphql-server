@@ -11,7 +11,8 @@ Queries:
 ++ query the mutual friends of two users
 
 Mutations:
-++ create a new Blog Post
+++ create a new blog
+++ delete a blog
 
 ```
 

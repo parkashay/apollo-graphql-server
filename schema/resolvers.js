@@ -4,13 +4,21 @@ const { getMutualFriends } = require("../utils/getMutualFriends");
 const resolvers = {
   Mutation: {
     // Creating a new Blog
-    createBlog: async (parent, args) => {
+    createBlog:  (parent, args) => {
       const newPost = args.input;
       const lastID = Blogs[Blogs.length - 1].id;
       newPost.id = lastID + 1;
       Blogs.push(args.input);
       return Blogs.find((blog) => blog.id == newPost.id);
     },
+
+    // Deleting a Blog
+    deleteBlog: (parent, args) => {
+      const {blogID} = args;
+      const blogToBeDeleted = Blogs.find((blog) => blog.id == blogID)
+      console.log(blogToBeDeleted)
+     if(blogToBeDeleted) return Blogs.splice(Blogs.indexOf(blogToBeDeleted, 1))
+    } 
   },
   Query: {
     // Users
