@@ -4,7 +4,7 @@ const { getMutualFriends } = require("../utils/getMutualFriends");
 const resolvers = {
   Mutation: {
     // Creating a new Blog
-    createBlog:  (parent, args) => {
+    createBlog: (parent, args) => {
       const newPost = args.input;
       const lastID = Blogs[Blogs.length - 1].id;
       newPost.id = lastID + 1;
@@ -14,11 +14,18 @@ const resolvers = {
 
     // Deleting a Blog
     deleteBlog: (parent, args) => {
-      const {blogID} = args;
-      const blogToBeDeleted = Blogs.find((blog) => blog.id == blogID)
-      console.log(blogToBeDeleted)
-     if(blogToBeDeleted) return Blogs.splice(Blogs.indexOf(blogToBeDeleted, 1))
-    } 
+      const { blogID } = args;
+      const blogToBeDeleted = Blogs.find((blog) => blog.id == blogID);
+      if (blogToBeDeleted) {
+        Blogs.splice(Blogs.indexOf(blogToBeDeleted, 1));
+        return {
+          success: true,
+          message: "Blog deleted successfully",
+        };
+      } else {
+        return { success: false, message: "The blog doesn't exist" };
+      }
+    },
   },
   Query: {
     // Users

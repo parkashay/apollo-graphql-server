@@ -19,6 +19,10 @@ const typeDefs = gql`
     user: ID
   }
 
+  type Message {
+    success: Boolean!
+    message: String!
+  }
 
   type Query {
     users: [User!]!
@@ -30,15 +34,15 @@ const typeDefs = gql`
   }
 
   type Mutation {
-  createBlog(input: CreateBlogInput!): Blog!
-  deleteBlog(blogID: ID!): Blog!
+    createBlog(input: CreateBlogInput!): Blog!
+    deleteBlog(blogID: ID!): Message!
   }
 
   input CreateBlogInput {
-  title: String!
-  content: String!
-  isPosted: Boolean!
-  user: ID = 999
+    title: String!
+    content: String!
+    isPosted: Boolean!
+    user: ID = 999
   }
   type Mutation {
     createBlog(input: CreateBlogInput!): Blog!
